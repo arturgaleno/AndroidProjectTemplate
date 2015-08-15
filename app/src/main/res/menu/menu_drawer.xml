@@ -1,0 +1,14 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/navigation_item_1"
+            android:icon="@mipmap/ic_launcher"
+            android:title="@string/drawer_opcao_test_1"/>
+        <item
+            android:id="@+id/navigation_item_2"
+            android:icon="@mipmap/ic_launcher"
+            android:title="@string/drawer_opcao_test_1"/>
+    </group>
+</menu>

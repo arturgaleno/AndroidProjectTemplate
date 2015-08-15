@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Template</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="drawer_opcao_test_1">Teste 1</string>
+    <string name="content_description_default_header_view">An default header view</string>
+</resources>

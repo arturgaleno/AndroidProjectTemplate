@@ -1,0 +1,77 @@
+apply plugin: 'com.android.application'
+apply plugin: 'android-apt'
+
+def TWITTER_USER_API_KEY = TwitterKey
+def TWITTER_USER_API_SECRET = TwitterSecret
+
+android {
+    compileSdkVersion 22
+    buildToolsVersion "22.0.1"
+    defaultConfig {
+        applicationId "br.com.app.template"
+        minSdkVersion 10
+        targetSdkVersion 22
+        versionCode 1
+        versionName "1.0"
+        resConfigs "en", "pt"
+        resConfigs "nodpi", "mdpi", "hdpi", "xhdpi", "xxhdpi"
+    }
+    buildTypes {
+        release {
+            buildConfigField "String", "TWITTER_USER_API_KEY", TWITTER_USER_API_KEY
+            buildConfigField "String", "TWITTER_USER_API_SECRET", TWITTER_USER_API_SECRET
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+        debug {
+            buildConfigField "String", "TWITTER_USER_API_KEY", TWITTER_USER_API_KEY
+            buildConfigField "String", "TWITTER_USER_API_SECRET", TWITTER_USER_API_SECRET
+        }
+    }
+
+    packagingOptions {
+        exclude 'META-INF/LICENSE.txt'
+        exclude 'META-INF/NOTICE.txt'
+        exclude '.readme'
+    }
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+
+    //COMMON LIBRARIES
+    apt "org.androidannotations:androidannotations:3.2"
+    compile 'com.android.support:appcompat-v7:22.2.1'
+    compile 'com.android.support:design:22.2.1'
+    compile 'com.squareup.okhttp:okhttp:2.0.0'
+    compile 'com.android.support:recyclerview-v7:22.2.1'
+    compile 'com.android.support:cardview-v7:22.2.1'
+    compile 'org.androidannotations:androidannotations-api:3.2'
+    compile 'ch.acra:acra:4.6.2'
+    compile 'com.squareup.okhttp:okhttp:2.4.0'
+    compile 'com.squareup.okhttp:okhttp-urlconnection:2.4.0'
+    compile 'com.squareup.retrofit:retrofit:1.9.0'
+    compile 'com.j256.ormlite:ormlite-android:4.48'
+    debugCompile 'com.squareup.leakcanary:leakcanary-android:1.3.1'
+    releaseCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.3.1'
+
+    //SAMPLE PURPOSE
+    compile 'com.github.bumptech.glide:glide:3.6.1'
+    compile 'com.github.bumptech.glide:okhttp-integration:1.3.0'
+
+    //TEST DEPEDENCIES
+    testCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.3.1' //because issues with roboletric
+    testCompile "junit:junit:4.10"
+    testCompile "org.robolectric:robolectric:3.0"
+    testCompile 'org.robolectric:shadows-support-v4:3.0'
+    testCompile 'com.squareup.assertj:assertj-android:1.0.1'
+    testCompile 'org.mockito:mockito-core:1.10.19'
+    testCompile 'org.robolectric:shadows-support-v4'
+}
+
+apt {
+    arguments {
+        androidManifestFile variant.outputs[0].processResources.manifestFile
+        resourcePackageName 'br.com.app.template'
+    }
+}
