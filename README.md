@@ -45,3 +45,9 @@ and get the values.
 - [Roboletric](http://robolectric.org/)
 - [JUnit](http://junit.org/)
 - [Assertj-Android](http://square.github.io/assertj-android/)
+
+### Example Image:
+
+###### This image was edited to preserve identity.
+
+<img src="./example.png" width="338" height="600"></img>
