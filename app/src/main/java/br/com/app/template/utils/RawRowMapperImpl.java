@@ -9,7 +9,7 @@ import java.util.Map;
 /**
  * Created by artur on 05/08/15.
  *
- * RawRowMapperImpl for OrmLite
+ * RawRowMapperImpl for OrmLite, for raw queries.
  *
  */
 public class RawRowMapperImpl implements RawRowMapper<Map<String, String>> {

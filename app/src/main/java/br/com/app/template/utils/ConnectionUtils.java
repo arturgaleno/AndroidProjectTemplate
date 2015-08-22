@@ -144,7 +144,6 @@ public class ConnectionUtils {
     }
 
     /**
-     *
      * @param host String with the host identification
      * @param port String with the port
      * @param timeout int with the try timeout in milliseconds

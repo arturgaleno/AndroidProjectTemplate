@@ -2,6 +2,7 @@ package br.com.app.template;
 
 import android.app.Application;
 
+import com.facebook.stetho.Stetho;
 import com.google.gson.Gson;
 import com.squareup.leakcanary.LeakCanary;
 import com.squareup.okhttp.Cache;
@@ -38,8 +39,17 @@ public class AppApplication extends Application {
     public void init() {
         ACRA.init(this);
         ACRA.getErrorReporter().setReportSender(acraSender);
-        LeakCanary.install(this);
 
+        if (BuildConfig.IS_DEBUGGING) {
+            LeakCanary.install(this);
+            Stetho.initialize(
+                    Stetho.newInitializerBuilder(this)
+                            .enableDumpapp(
+                                    Stetho.defaultDumperPluginsProvider(this))
+                            .enableWebKitInspector(
+                                    Stetho.defaultInspectorModulesProvider(this))
+                            .build());
+        }
         //FOR SAMPLE PURPOSE
         OkHttpClient okHttpClient = new OkHttpClient()
                 .setCache(new Cache(getCacheDir(), 1024 * 1024 * 10));

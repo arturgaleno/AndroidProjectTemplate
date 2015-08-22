@@ -27,6 +27,7 @@ and get the values.
 - Orm for Sqlite
 - Less boilerplate, more speed and easier Maintainance with AndroidAnnotations
 - Unit Tests with Roboletric
+- Stheto (Debug Bridge)
 
 ### Configured with:
 
@@ -45,6 +46,7 @@ and get the values.
 - [Roboletric](http://robolectric.org/)
 - [JUnit](http://junit.org/)
 - [Assertj-Android](http://square.github.io/assertj-android/)
+- [Stheto](http://facebook.github.io/stetho/)
 
 ### Example Image:
 
