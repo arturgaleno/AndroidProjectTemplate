@@ -23,7 +23,7 @@ import java.io.IOException;
 
 /**
  * Hint: Prefer Glide, Fresco, Picasso etc, to load images. They cover most of use cases.
- * But, here goal some image utilities.
+ * But, here goes some image utilities.
  */
 @EBean
 public class ImageUtils {
